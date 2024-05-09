@@ -333,6 +333,7 @@ fn write_to_file(dir: &Path, filename: &str, content: &[u8]) -> Result<PathBuf, 
 
 fn try_write_to_file(path: &Path, content: &[u8]) -> std::io::Result<()> {
     let mut f = File::create(path)?;
+    println!("Writing generated code to {path:?}");
     f.write_all(content)
 }
 

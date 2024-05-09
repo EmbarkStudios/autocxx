@@ -447,6 +447,7 @@ impl IncludeCppEngine {
         if let Some(dep_recorder) = dep_recorder {
             builder = builder.parse_callbacks(Box::new(AutocxxParseCallbacks(dep_recorder)));
         }
+        println!("Bindgen builder = {builder:?}");
         let header_contents = self.build_header();
         self.dump_header_if_so_configured(&header_contents, &inc_dirs, extra_clang_args);
         let header_and_prelude = format!("{}\n\n{}", known_types().get_prelude(), header_contents);
